@@ -5,272 +5,269 @@ namespace CircusTrein
 {
     class Program
     {
+        static bool loop = true;
         static void Main(string[] args)
         {
-            static void Menu()
+            static void StartMenu()
             {
-                //Menu
-                Console.WriteLine("Welkom bij het programma Circus Trein!");
-                Console.WriteLine("Geef gegevens van de dieren hieronder door:\n");
-                Console.WriteLine("Toets 1 voor vleeseters, toets 2 voor planteneters en toets 3 voor gemengd.\n");
-                string menuKeuze = Console.ReadLine();
-                if (menuKeuze == "1")
+                while (loop == true)
                 {
-                    Keuze_1();
-                }
-                else if (menuKeuze == "2")
-                {
-                    Keuze_2();
-                }
-                else if (menuKeuze == "3")
-                {
-                    Keuze_3();
+                    Console.WriteLine("Toets 1 voor vleeseters, toets 2 voor planteneters en toets 3 voor gemengd.\n");
+                    string menuKeuze = Console.ReadLine();
+                    if (menuKeuze == "1")
+                    {
+                        Keuze_1();
+                    }
+                    else if (menuKeuze == "2")
+                    {
+                        Keuze_2();
+                    }
+                    else if (menuKeuze == "3")
+                    {
+                        Keuze_3();
+                    }
                 }
             }
 
             static void Keuze_3()
             {
-                bool loop = true;
                 Train train = new Train();
-                while (loop == true)
+                Console.WriteLine("U heeft gekozen voor gemengd");
+                Console.WriteLine("Voer een naam in");
+                string name = Console.ReadLine();
+                Animals animal = new Animals(name, AnimalSize.Large, AnimalDiet.Herbivore);
+                Console.WriteLine("Voer een grootte in, kies uit 'small', 'medium', 'large'");
+                string size = Console.ReadLine();
+                if (size == "small")
                 {
-                    Console.WriteLine("U heeft gekozen voor gemengd");
-                    Console.WriteLine("Voer een naam in");
-                    string name = Console.ReadLine();
-                    Animals animal = new Animals(name, AnimalSize.Large, AnimalDiet.Herbivore);
-                    Console.WriteLine("Voer een grootte in, kies uit 'small', 'medium', 'large'");
-                    string size = Console.ReadLine();
-                    if (size == "small")
+                    animal.Size = AnimalSize.Small;
+                    Console.WriteLine("Voer een dieet in, kies uit 'vlees' of 'planten'");
+                    string dieet = Console.ReadLine();
+                    if (dieet == "vlees")
                     {
-                        animal.Size = AnimalSize.Small;
-                        Console.WriteLine("Voer een dieet in, kies uit 'vlees' of 'planten'");
-                        string dieet = Console.ReadLine();
-                        if (dieet == "vlees")
+                        animal.Diet = AnimalDiet.Carnivore;
+                        train.AddAnimalToQueue(animal);
+                        //Wil je meer dieren toevoegen
+                        bool loop2 = true;
+                        while (loop2 == true)
                         {
-                            animal.Diet = AnimalDiet.Carnivore;
-                            train.AddAnimalToQueue(animal);
-                            //Wil je meer dieren toevoegen
-                            bool loop2 = true;
-                            while (loop2 == true)
+                            Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
+                            loop2 = false;
+                            string antwoord = Console.ReadLine();
+                            if (antwoord == "ja")
                             {
-                                Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
-                                loop2 = false;
-                                string antwoord = Console.ReadLine();
-                                if (antwoord == "ja")
+                                loop = true;
+                            }
+                            if (antwoord == "nee")
+                            {
+                                loop = false;
+                                train.InsertAnimalsToWagon();
+                                List<Wagon> wagons = train.RetrieveWagons();
+                                for (int i = 0; i < wagons.Count; i++)
                                 {
-                                    loop = true;
-                                }
-                                if (antwoord == "nee")
-                                {
-                                    loop = false;
-                                    train.InsertAnimalsToWagon();
-                                    List<Wagon> wagons = train.RetrieveWagons();
-                                    for (int i = 0; i < wagons.Count; i++)
+                                    Console.WriteLine("Wagon" + (i + 1));
+                                    foreach (Animals animalTest in wagons[i].RetrieveAnimals())
                                     {
-                                        Console.WriteLine("Wagon" + (i + 1));
-                                        foreach (Animals animalTest in wagons[i].RetrieveAnimals())
-                                        {
-                                            Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
-                                        }
+                                        Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
                                     }
-                                }
-                                else if (antwoord != "ja" && antwoord != "nee")
-                                {
-                                    Console.WriteLine("Onjuiste invoer");
-                                    loop2 = true;
                                 }
                             }
-                        }
-                        if (dieet == "planten")
-                        {
-                            animal.Diet = AnimalDiet.Herbivore;
-                            Console.ReadLine();
-                            //Wil je meer dieren toevoegen
-                            bool loop2 = true;
-                            while (loop2 == true)
+                            else if (antwoord != "ja" && antwoord != "nee")
                             {
-                                Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
-                                loop2 = false;
-                                string antwoord = Console.ReadLine();
-                                if (antwoord == "ja")
-                                {
-                                    loop = true;
-                                }
-                                if (antwoord == "nee")
-                                {
-                                    loop = false;
-                                    train.InsertAnimalsToWagon();
-                                    List<Wagon> wagons = train.RetrieveWagons();
-                                    for (int i = 0; i < wagons.Count; i++)
-                                    {
-                                        Console.WriteLine("Wagon" + (i + 1));
-                                        foreach (Animals animalTest in wagons[i].RetrieveAnimals())
-                                        {
-                                            Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
-                                        }
-                                    }
-                                }
-                                else if (antwoord != "ja" && antwoord != "nee")
-                                {
-                                    Console.WriteLine("Onjuiste invoer");
-                                    loop2 = true;
-                                }
+                                Console.WriteLine("Onjuiste invoer");
+                                loop2 = true;
                             }
                         }
                     }
-                    if (size == "medium")
+                    if (dieet == "planten")
                     {
-                        animal.Size = AnimalSize.Medium;
-                        Console.WriteLine("Voer een dieet in, kies uit 'vlees' of 'planten'");
-                        string dieet = Console.ReadLine();
-                        if (dieet == "vlees")
+                        animal.Diet = AnimalDiet.Herbivore;
+                        Console.ReadLine();
+                        //Wil je meer dieren toevoegen
+                        bool loop2 = true;
+                        while (loop2 == true)
                         {
-                            animal.Diet = AnimalDiet.Carnivore;
-                            train.AddAnimalToQueue(animal);
-                            //Wil je meer dieren toevoegen
-                            bool loop2 = true;
-                            while (loop2 == true)
+                            Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
+                            loop2 = false;
+                            string antwoord = Console.ReadLine();
+                            if (antwoord == "ja")
                             {
-                                Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
-                                loop2 = false;
-                                string antwoord = Console.ReadLine();
-                                if (antwoord == "ja")
+                                loop = true;
+                            }
+                            if (antwoord == "nee")
+                            {
+                                loop = false;
+                                train.InsertAnimalsToWagon();
+                                List<Wagon> wagons = train.RetrieveWagons();
+                                for (int i = 0; i < wagons.Count; i++)
                                 {
-                                    loop = true;
-                                }
-                                if (antwoord == "nee")
-                                {
-                                    loop = false;
-                                    train.InsertAnimalsToWagon();
-                                    List<Wagon> wagons = train.RetrieveWagons();
-                                    for (int i = 0; i < wagons.Count; i++)
+                                    Console.WriteLine("Wagon" + (i + 1));
+                                    foreach (Animals animalTest in wagons[i].RetrieveAnimals())
                                     {
-                                        Console.WriteLine("Wagon" + (i + 1));
-                                        foreach (Animals animalTest in wagons[i].RetrieveAnimals())
-                                        {
-                                            Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
-                                        }
+                                        Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
                                     }
-                                }
-                                else if (antwoord != "ja" && antwoord != "nee")
-                                {
-                                    Console.WriteLine("Onjuiste invoer");
-                                    loop2 = true;
                                 }
                             }
-                        }
-                        if (dieet == "planten")
-                        {
-                            animal.Diet = AnimalDiet.Herbivore;
-                            train.AddAnimalToQueue(animal);
-                            //Wil je meer dieren toevoegen
-                            bool loop2 = true;
-                            while (loop2 == true)
+                            else if (antwoord != "ja" && antwoord != "nee")
                             {
-                                Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
-                                loop2 = false;
-                                string antwoord = Console.ReadLine();
-                                if (antwoord == "ja")
-                                {
-                                    loop = true;
-                                }
-                                if (antwoord == "nee")
-                                {
-                                    loop = false;
-                                    train.InsertAnimalsToWagon();
-                                    List<Wagon> wagons = train.RetrieveWagons();
-                                    for (int i = 0; i < wagons.Count; i++)
-                                    {
-                                        Console.WriteLine("Wagon" + (i + 1));
-                                        foreach (Animals animalTest in wagons[i].RetrieveAnimals())
-                                        {
-                                            Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
-                                        }
-                                    }
-                                }
-                                else if (antwoord != "ja" && antwoord != "nee")
-                                {
-                                    Console.WriteLine("Onjuiste invoer");
-                                    loop2 = true;
-                                }
+                                Console.WriteLine("Onjuiste invoer");
+                                loop2 = true;
                             }
                         }
                     }
-                    if (size == "large")
+                }
+                if (size == "medium")
+                {
+                    animal.Size = AnimalSize.Medium;
+                    Console.WriteLine("Voer een dieet in, kies uit 'vlees' of 'planten'");
+                    string dieet = Console.ReadLine();
+                    if (dieet == "vlees")
                     {
-                        animal.Size = AnimalSize.Large;
-                        Console.WriteLine("Voer een dieet in, kies uit 'vlees' of 'planten'");
-                        string dieet = Console.ReadLine();
-                        if (dieet == "vlees")
+                        animal.Diet = AnimalDiet.Carnivore;
+                        train.AddAnimalToQueue(animal);
+                        //Wil je meer dieren toevoegen
+                        bool loop2 = true;
+                        while (loop2 == true)
                         {
-                            animal.Diet = AnimalDiet.Carnivore;
-                            train.AddAnimalToQueue(animal);
-                            //Wil je meer dieren toevoegen
-                            bool loop2 = true;
-                            while (loop2 == true)
+                            Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
+                            loop2 = false;
+                            string antwoord = Console.ReadLine();
+                            if (antwoord == "ja")
                             {
-                                Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
-                                loop2 = false;
-                                string antwoord = Console.ReadLine();
-                                if (antwoord == "ja")
+                                loop = true;
+                            }
+                            if (antwoord == "nee")
+                            {
+                                loop = false;
+                                train.InsertAnimalsToWagon();
+                                List<Wagon> wagons = train.RetrieveWagons();
+                                for (int i = 0; i < wagons.Count; i++)
                                 {
-                                    loop = true;
-                                }
-                                if (antwoord == "nee")
-                                {
-                                    loop = false;
-                                    train.InsertAnimalsToWagon();
-                                    List<Wagon> wagons = train.RetrieveWagons();
-                                    for (int i = 0; i < wagons.Count; i++)
+                                    Console.WriteLine("Wagon" + (i + 1));
+                                    foreach (Animals animalTest in wagons[i].RetrieveAnimals())
                                     {
-                                        Console.WriteLine("Wagon" + (i + 1));
-                                        foreach (Animals animalTest in wagons[i].RetrieveAnimals())
-                                        {
-                                            Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
-                                        }
+                                        Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
                                     }
-                                }
-                                else if (antwoord != "ja" && antwoord != "nee")
-                                {
-                                    Console.WriteLine("Onjuiste invoer");
-                                    loop2 = true;
                                 }
                             }
-                        }
-                        if (dieet == "planten")
-                        {
-                            animal.Diet = AnimalDiet.Herbivore;
-                            train.AddAnimalToQueue(animal);
-                            //Wil je meer dieren toevoegen
-                            bool loop2 = true;
-                            while (loop2 == true)
+                            else if (antwoord != "ja" && antwoord != "nee")
                             {
-                                Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
-                                loop2 = false;
-                                string antwoord = Console.ReadLine();
-                                if (antwoord == "ja")
+                                Console.WriteLine("Onjuiste invoer");
+                                loop2 = true;
+                            }
+                        }
+                    }
+                    if (dieet == "planten")
+                    {
+                        animal.Diet = AnimalDiet.Herbivore;
+                        train.AddAnimalToQueue(animal);
+                        //Wil je meer dieren toevoegen
+                        bool loop2 = true;
+                        while (loop2 == true)
+                        {
+                            Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
+                            loop2 = false;
+                            string antwoord = Console.ReadLine();
+                            if (antwoord == "ja")
+                            {
+                                loop = true;
+                            }
+                            if (antwoord == "nee")
+                            {
+                                loop = false;
+                                train.InsertAnimalsToWagon();
+                                List<Wagon> wagons = train.RetrieveWagons();
+                                for (int i = 0; i < wagons.Count; i++)
                                 {
-                                    loop = true;
-                                }
-                                if (antwoord == "nee")
-                                {
-                                    loop = false;
-                                    train.InsertAnimalsToWagon();
-                                    List<Wagon> wagons = train.RetrieveWagons();
-                                    for (int i = 0; i < wagons.Count; i++)
+                                    Console.WriteLine("Wagon" + (i + 1));
+                                    foreach (Animals animalTest in wagons[i].RetrieveAnimals())
                                     {
-                                        Console.WriteLine("Wagon" + (i + 1));
-                                        foreach (Animals animalTest in wagons[i].RetrieveAnimals())
-                                        {
-                                            Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
-                                        }
+                                        Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
                                     }
                                 }
-                                else if (antwoord != "ja" && antwoord != "nee")
+                            }
+                            else if (antwoord != "ja" && antwoord != "nee")
+                            {
+                                Console.WriteLine("Onjuiste invoer");
+                                loop2 = true;
+                            }
+                        }
+                    }
+                }
+                if (size == "large")
+                {
+                    animal.Size = AnimalSize.Large;
+                    Console.WriteLine("Voer een dieet in, kies uit 'vlees' of 'planten'");
+                    string dieet = Console.ReadLine();
+                    if (dieet == "vlees")
+                    {
+                        animal.Diet = AnimalDiet.Carnivore;
+                        train.AddAnimalToQueue(animal);
+                        //Wil je meer dieren toevoegen
+                        bool loop2 = true;
+                        while (loop2 == true)
+                        {
+                            Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
+                            loop2 = false;
+                            string antwoord = Console.ReadLine();
+                            if (antwoord == "ja")
+                            {
+                                loop = true;
+                            }
+                            if (antwoord == "nee")
+                            {
+                                loop = false;
+                                train.InsertAnimalsToWagon();
+                                List<Wagon> wagons = train.RetrieveWagons();
+                                for (int i = 0; i < wagons.Count; i++)
                                 {
-                                    Console.WriteLine("Onjuiste invoer");
-                                    loop2 = true;
+                                    Console.WriteLine("Wagon" + (i + 1));
+                                    foreach (Animals animalTest in wagons[i].RetrieveAnimals())
+                                    {
+                                        Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
+                                    }
                                 }
+                            }
+                            else if (antwoord != "ja" && antwoord != "nee")
+                            {
+                                Console.WriteLine("Onjuiste invoer");
+                                loop2 = true;
+                            }
+                        }
+                    }
+                    if (dieet == "planten")
+                    {
+                        animal.Diet = AnimalDiet.Herbivore;
+                        train.AddAnimalToQueue(animal);
+                        //Wil je meer dieren toevoegen
+                        bool loop2 = true;
+                        while (loop2 == true)
+                        {
+                            Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
+                            loop2 = false;
+                            string antwoord = Console.ReadLine();
+                            if (antwoord == "ja")
+                            {
+                                loop = true;
+                            }
+                            if (antwoord == "nee")
+                            {
+                                loop = false;
+                                train.InsertAnimalsToWagon();
+                                List<Wagon> wagons = train.RetrieveWagons();
+                                for (int i = 0; i < wagons.Count; i++)
+                                {
+                                    Console.WriteLine("Wagon" + (i + 1));
+                                    foreach (Animals animalTest in wagons[i].RetrieveAnimals())
+                                    {
+                                        Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
+                                    }
+                                }
+                            }
+                            else if (antwoord != "ja" && antwoord != "nee")
+                            {
+                                Console.WriteLine("Onjuiste invoer");
+                                loop2 = true;
                             }
                         }
                     }
@@ -311,6 +308,10 @@ namespace CircusTrein
                     train.AddAnimalToQueue(grotePlanteneter);
                     train.InsertAnimalsToWagon();
                 }
+                else if (menuPlanteneters == "4")
+                {
+                    //gemengde groottes
+                }
             }
 
             static void Keuze_1()
@@ -348,9 +349,11 @@ namespace CircusTrein
                     train.InsertAnimalsToWagon();
                 }
             }
-            Console.ReadKey();
+            //Menu
+            Console.WriteLine("Welkom bij het programma Circus Trein!");
+            Console.WriteLine("Geef gegevens van de dieren hieronder door:\n");
             //Start van het programma
-            Menu();
+            StartMenu();
 
         }
     }
