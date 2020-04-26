@@ -289,6 +289,26 @@ namespace CircusTrein
                     Animals kleinePlanteneter = new Animals(name, AnimalSize.Small, AnimalDiet.Herbivore);
                     train.AddAnimalToQueue(kleinePlanteneter);
                     train.InsertAnimalsToWagon();
+                    bool loop2 = true;
+                    while (loop2 == true)
+                    {
+                        Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
+                        loop2 = false;
+                        string antwoord = Console.ReadLine();
+                        if (antwoord == "ja")
+                        {
+                            loop = true;
+                        }
+                        else if (antwoord == "nee")
+                        {
+                            loop = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Onjuiste invoer");
+                            loop2 = true;
+                        }
+                    }
                 }
                 else if (menuPlanteneters == "2")
                 {
@@ -298,6 +318,26 @@ namespace CircusTrein
                     Animals middelPlanteneter = new Animals(name, AnimalSize.Medium, AnimalDiet.Herbivore);
                     train.AddAnimalToQueue(middelPlanteneter);
                     train.InsertAnimalsToWagon();
+                    bool loop2 = true;
+                    while (loop2 == true)
+                    {
+                        Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
+                        loop2 = false;
+                        string antwoord = Console.ReadLine();
+                        if (antwoord == "ja")
+                        {
+                            loop = true;
+                        }
+                        else if (antwoord == "nee")
+                        {
+                            loop = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Onjuiste invoer");
+                            loop2 = true;
+                        }
+                    }
                 }
                 else if (menuPlanteneters == "3")
                 {
@@ -307,6 +347,26 @@ namespace CircusTrein
                     Animals grotePlanteneter = new Animals(name, AnimalSize.Large, AnimalDiet.Herbivore);
                     train.AddAnimalToQueue(grotePlanteneter);
                     train.InsertAnimalsToWagon();
+                    bool loop2 = true;
+                    while (loop2 == true)
+                    {
+                        Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
+                        loop2 = false;
+                        string antwoord = Console.ReadLine();
+                        if (antwoord == "ja")
+                        {
+                            loop = true;
+                        }
+                        else if (antwoord == "nee")
+                        {
+                            loop = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Onjuiste invoer");
+                            loop2 = true;
+                        }
+                    }
                 }
                 else if (menuPlanteneters == "4")
                 {
@@ -329,6 +389,26 @@ namespace CircusTrein
                     Animals kleineVleeseter = new Animals(name, AnimalSize.Small, AnimalDiet.Carnivore);
                     train.AddAnimalToQueue(kleineVleeseter);
                     train.InsertAnimalsToWagon();
+                    bool loop2 = true;
+                    while (loop2 == true)
+                    {
+                        Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
+                        loop2 = false;
+                        string antwoord = Console.ReadLine();
+                        if (antwoord == "ja")
+                        {
+                            loop = true;
+                        }
+                        else if (antwoord == "nee")
+                        {
+                            loop = false;
+                        }
+                        else if (antwoord != "ja" && antwoord != "nee")
+                        {
+                            Console.WriteLine("Onjuiste invoer");
+                            loop2 = true;
+                        }
+                    }
                 }
                 else if (menuVleeseter == "2")
                 {
@@ -338,6 +418,26 @@ namespace CircusTrein
                     Animals middelVleeseter = new Animals(name, AnimalSize.Medium, AnimalDiet.Carnivore);
                     train.AddAnimalToQueue(middelVleeseter);
                     train.InsertAnimalsToWagon();
+                    bool loop2 = true;
+                    while (loop2 == true)
+                    {
+                        Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
+                        loop2 = false;
+                        string antwoord = Console.ReadLine();
+                        if (antwoord == "ja")
+                        {
+                            loop = true;
+                        }
+                        else if (antwoord == "nee")
+                        {
+                            loop = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Onjuiste invoer");
+                            loop2 = true;
+                        }
+                    }
                 }
                 else if (menuVleeseter == "3")
                 {
@@ -347,6 +447,30 @@ namespace CircusTrein
                     Animals groteVleeseter = new Animals(name, AnimalSize.Large, AnimalDiet.Carnivore);
                     train.AddAnimalToQueue(groteVleeseter);
                     train.InsertAnimalsToWagon();
+                    bool loop2 = true;
+                    while (loop2 == true)
+                    {
+                        Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
+                        loop2 = false;
+                        string antwoord = Console.ReadLine();
+                        if (antwoord == "ja")
+                        {
+                            loop = true;
+                        }
+                        else if (antwoord == "nee")
+                        {
+                            loop = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Onjuiste invoer");
+                            loop2 = true;
+                        }
+                    }
+                }
+                else if (menuVleeseter == "4")
+                {
+                    //gemengde groottes
                 }
             }
             //Menu
