@@ -371,6 +371,8 @@ namespace CircusTrein
                 else if (menuPlanteneters == "4")
                 {
                     //gemengde groottes
+                    Console.WriteLine("Deze keuze is nog niet beschikbaar!");
+                    loop = true;
                 }
             }
 
@@ -471,6 +473,8 @@ namespace CircusTrein
                 else if (menuVleeseter == "4")
                 {
                     //gemengde groottes
+                    Console.WriteLine("Deze keuze is nog niet beschikbaar!");
+                    loop = true;
                 }
             }
             //Menu
