@@ -278,7 +278,7 @@ namespace CircusTrein
             {
                 Train train = new Train();
                 Console.WriteLine("U heeft gekozen voor alleen planteneters");
-                Console.WriteLine("Toets 1 voor alleen kleine dieren, toets 2 voor alleen middel,\ntoets 3 voor alleen grote en toets 4 voor gemengd");
+                Console.WriteLine("Toets 1 voor alleen kleine dieren, toets 2 voor alleen middel,\ntoets 3 voor alleen grote.");
                 string menuPlanteneters = Console.ReadLine();
 
                 if (menuPlanteneters == "1")
@@ -368,10 +368,10 @@ namespace CircusTrein
                         }
                     }
                 }
-                else if (menuPlanteneters == "4")
+                else if (menuPlanteneters != "1" || menuPlanteneters != "2" || menuPlanteneters != "3")
                 {
                     //gemengde groottes
-                    Console.WriteLine("Deze keuze is nog niet beschikbaar!");
+                    Console.WriteLine("invoer onjuist, probeer het opnieuw!");
                     loop = true;
                 }
             }
@@ -380,7 +380,7 @@ namespace CircusTrein
             {
                 Train train = new Train();
                 Console.WriteLine("U heeft gekozen voor alleen vleeseters");
-                Console.WriteLine("Toets 1 voor alleen kleine dieren, toets 2 voor alleen middel,\ntoets 3 voor alleen grote en toets 4 voor gemengd");
+                Console.WriteLine("Toets 1 voor alleen kleine dieren, toets 2 voor alleen middel,\ntoets 3 voor alleen grote dieren.");
                 string menuVleeseter = Console.ReadLine();
 
                 if (menuVleeseter == "1")
@@ -470,10 +470,10 @@ namespace CircusTrein
                         }
                     }
                 }
-                else if (menuVleeseter == "4")
+                else if (menuVleeseter != "1" || menuVleeseter != "2" || menuVleeseter != "3")
                 {
                     //gemengde groottes
-                    Console.WriteLine("Deze keuze is nog niet beschikbaar!");
+                    Console.WriteLine("Invoer onjuist, probeer het opnieuw!");
                     loop = true;
                 }
             }
