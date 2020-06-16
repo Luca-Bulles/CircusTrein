@@ -9,7 +9,7 @@ namespace CircusTrein
     {
         //Class Fields
         private List<Wagon> wagons = new List<Wagon>();
-        private List<Animals> animalsToAdd = new List<Animals>();
+        private List<Animal> animalsToAdd = new List<Animal>();
 
         //Class Properties
 
@@ -29,10 +29,10 @@ namespace CircusTrein
         public void InsertAnimalsToWagon()
         {
             ResetWagons();
-            //Sorteer van Small - Medium - Large
+            //Sorteer van groot naar klein
             animalsToAdd = animalsToAdd.OrderByDescending(order => order.Size).ToList();
 
-            foreach (Animals animal in animalsToAdd)
+            foreach (Animal animal in animalsToAdd)
             {
                 //For every wagon in the wagons list
                 for (int i = 0; i < wagons.Count; i++)
@@ -70,7 +70,7 @@ namespace CircusTrein
             return wagons;
         }
 
-        public void AddAnimalToQueue(Animals animal)
+        public void AddAnimalToQueue(Animal animal)
         {
             animalsToAdd.Add(animal);
         }

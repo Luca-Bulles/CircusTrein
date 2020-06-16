@@ -7,7 +7,7 @@ namespace CircusTrein
     //Enums om te gebruiker in de namespace, maar buiten de klasse
     public enum AnimalDiet { Carnivore, Herbivore }
     public enum AnimalSize { Small, Medium, Large }
-    public class Animals
+    public class Animal
     {
         //Class Fields
 
@@ -17,7 +17,7 @@ namespace CircusTrein
         public AnimalSize Size { get; set; }
 
         //Class Constructors
-        public Animals(string name, AnimalSize size, AnimalDiet diet)
+        public Animal(string name, AnimalSize size, AnimalDiet diet)
         {
             this.Name = name;
             this.Size = size;

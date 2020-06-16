@@ -7,7 +7,7 @@ namespace CircusTrein
     public class Wagon
     {
         //Class Fields
-        private List<Animals> animals = new List<Animals>();
+        private List<Animal> animals = new List<Animal>();
         private int maxSize = 10;
 
         //Class Properties
@@ -21,14 +21,14 @@ namespace CircusTrein
             //Zet size gelijk aan maxSize(10)
             int leftOverSize = maxSize;
             //Voor elk dier in animals list
-            foreach (Animals animal in animals)
+            foreach (Animal animal in animals)
             {
                 //size - grootte van dier.
-                leftOverSize = leftOverSize - animal.RetrieveSize();
+                leftOverSize -= animal.RetrieveSize();
             }
             return leftOverSize;
         }
-        public bool CanBeAdded(Animals animal)
+        public bool CanBeAdded(Animal animal)
         {
             //Wanneer de ruimte die we nog hebben kleiner is dan de size van animal
             if (RetrieveLeftOverSize() < animal.RetrieveSize())
@@ -37,12 +37,12 @@ namespace CircusTrein
                 return false;
             }
             //Als Diet Carnivore is en animalSize is >= animal die toegevoegd moet worden, return false
-            if (animals.FindIndex(index => index.Diet == AnimalDiet.Carnivore && index.Size >= animal.Size) >-1)
+            if (animals.FindIndex(index => index.Diet == AnimalDiet.Carnivore && index.Size >= animal.Size) > -1)
             {
                 return false;
             }
             //Als Size <= Size van animal die toegevoegd moet worden, en zijn Diet is Carnivore, return false.
-            if (animals.FindIndex(index => index.Size <= animal.Size && animal.Diet == AnimalDiet.Carnivore) >-1)
+            if (animals.FindIndex(index => index.Size <= animal.Size && animal.Diet == AnimalDiet.Carnivore) > -1)
             {
                 return false;
             }
@@ -51,7 +51,7 @@ namespace CircusTrein
         }
 
         //Methode om dieren toe te voegen aan animals lijst.
-        public bool InsertInWagon(Animals animal)
+        public bool InsertInWagon(Animal animal)
         {
             animals.Add(animal);
             if (RetrieveLeftOverSize() <= 0)
@@ -61,7 +61,7 @@ namespace CircusTrein
             return true;
         }
 
-        public List<Animals> RetrieveAnimals()
+        public List<Animal> RetrieveAnimals()
         {
             return animals;
         }

@@ -35,7 +35,7 @@ namespace CircusTrein
                 Console.WriteLine("U heeft gekozen voor gemengd");
                 Console.WriteLine("Voer een naam in");
                 string name = Console.ReadLine();
-                Animals animal = new Animals(name, AnimalSize.Large, AnimalDiet.Herbivore);
+                Animal animal = new Animal(name, AnimalSize.Large, AnimalDiet.Herbivore);
                 Console.WriteLine("Voer een grootte in, kies uit 'small', 'medium', 'large'");
                 string size = Console.ReadLine();
                 if (size == "small")
@@ -66,8 +66,9 @@ namespace CircusTrein
                                 for (int i = 0; i < wagons.Count; i++)
                                 {
                                     Console.WriteLine("Wagon" + (i + 1));
-                                    foreach (Animals animalTest in wagons[i].RetrieveAnimals())
+                                    foreach (Animal animalTest in wagons[i].RetrieveAnimals())
                                     {
+                                        Console.WriteLine("IK KOM HIER AAN");
                                         Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
                                     }
                                 }
@@ -102,7 +103,7 @@ namespace CircusTrein
                                 for (int i = 0; i < wagons.Count; i++)
                                 {
                                     Console.WriteLine("Wagon" + (i + 1));
-                                    foreach (Animals animalTest in wagons[i].RetrieveAnimals())
+                                    foreach (Animal animalTest in wagons[i].RetrieveAnimals())
                                     {
                                         Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
                                     }
@@ -144,7 +145,7 @@ namespace CircusTrein
                                 for (int i = 0; i < wagons.Count; i++)
                                 {
                                     Console.WriteLine("Wagon" + (i + 1));
-                                    foreach (Animals animalTest in wagons[i].RetrieveAnimals())
+                                    foreach (Animal animalTest in wagons[i].RetrieveAnimals())
                                     {
                                         Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
                                     }
@@ -180,7 +181,7 @@ namespace CircusTrein
                                 for (int i = 0; i < wagons.Count; i++)
                                 {
                                     Console.WriteLine("Wagon" + (i + 1));
-                                    foreach (Animals animalTest in wagons[i].RetrieveAnimals())
+                                    foreach (Animal animalTest in wagons[i].RetrieveAnimals())
                                     {
                                         Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
                                     }
@@ -222,7 +223,7 @@ namespace CircusTrein
                                 for (int i = 0; i < wagons.Count; i++)
                                 {
                                     Console.WriteLine("Wagon" + (i + 1));
-                                    foreach (Animals animalTest in wagons[i].RetrieveAnimals())
+                                    foreach (Animal animalTest in wagons[i].RetrieveAnimals())
                                     {
                                         Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
                                     }
@@ -258,7 +259,7 @@ namespace CircusTrein
                                 for (int i = 0; i < wagons.Count; i++)
                                 {
                                     Console.WriteLine("Wagon" + (i + 1));
-                                    foreach (Animals animalTest in wagons[i].RetrieveAnimals())
+                                    foreach (Animal animalTest in wagons[i].RetrieveAnimals())
                                     {
                                         Console.WriteLine(animalTest.Name + animalTest.Diet + animalTest.Size);
                                     }
@@ -286,7 +287,7 @@ namespace CircusTrein
                     Console.WriteLine("U heeft gekozen voor alleen kleine planteneters");
                     Console.WriteLine("Voer een naam in");
                     string name = Console.ReadLine();
-                    Animals kleinePlanteneter = new Animals(name, AnimalSize.Small, AnimalDiet.Herbivore);
+                    Animal kleinePlanteneter = new Animal(name, AnimalSize.Small, AnimalDiet.Herbivore);
                     train.AddAnimalToQueue(kleinePlanteneter);
                     train.InsertAnimalsToWagon();
                     bool loop2 = true;
@@ -315,7 +316,7 @@ namespace CircusTrein
                     Console.WriteLine("U heeft gekozen voor alleen middel planteneters");
                     Console.WriteLine("Voer een naam in");
                     string name = Console.ReadLine();
-                    Animals middelPlanteneter = new Animals(name, AnimalSize.Medium, AnimalDiet.Herbivore);
+                    Animal middelPlanteneter = new Animal(name, AnimalSize.Medium, AnimalDiet.Herbivore);
                     train.AddAnimalToQueue(middelPlanteneter);
                     train.InsertAnimalsToWagon();
                     bool loop2 = true;
@@ -344,7 +345,7 @@ namespace CircusTrein
                     Console.WriteLine("U heeft gekozen voor alleen grote planteneters");
                     Console.WriteLine("Voer een naam in");
                     string name = Console.ReadLine();
-                    Animals grotePlanteneter = new Animals(name, AnimalSize.Large, AnimalDiet.Herbivore);
+                    Animal grotePlanteneter = new Animal(name, AnimalSize.Large, AnimalDiet.Herbivore);
                     train.AddAnimalToQueue(grotePlanteneter);
                     train.InsertAnimalsToWagon();
                     bool loop2 = true;
@@ -388,7 +389,7 @@ namespace CircusTrein
                     Console.WriteLine("U heeft gekozen voor alleen kleine vleeseters");
                     Console.WriteLine("Voer een naam in");
                     string name = Console.ReadLine();
-                    Animals kleineVleeseter = new Animals(name, AnimalSize.Small, AnimalDiet.Carnivore);
+                    Animal kleineVleeseter = new Animal(name, AnimalSize.Small, AnimalDiet.Carnivore);
                     train.AddAnimalToQueue(kleineVleeseter);
                     train.InsertAnimalsToWagon();
                     bool loop2 = true;
@@ -417,7 +418,7 @@ namespace CircusTrein
                     Console.WriteLine("U heeft gekozen voor alleen middel vleeseters");
                     Console.WriteLine("Voer een naam in");
                     string name = Console.ReadLine();
-                    Animals middelVleeseter = new Animals(name, AnimalSize.Medium, AnimalDiet.Carnivore);
+                    Animal middelVleeseter = new Animal(name, AnimalSize.Medium, AnimalDiet.Carnivore);
                     train.AddAnimalToQueue(middelVleeseter);
                     train.InsertAnimalsToWagon();
                     bool loop2 = true;
@@ -446,7 +447,7 @@ namespace CircusTrein
                     Console.WriteLine("U heeft gekozen voor alleen grote vleeseters");
                     Console.WriteLine("Voer een naam in");
                     string name = Console.ReadLine();
-                    Animals groteVleeseter = new Animals(name, AnimalSize.Large, AnimalDiet.Carnivore);
+                    Animal groteVleeseter = new Animal(name, AnimalSize.Large, AnimalDiet.Carnivore);
                     train.AddAnimalToQueue(groteVleeseter);
                     train.InsertAnimalsToWagon();
                     bool loop2 = true;
@@ -486,4 +487,3 @@ namespace CircusTrein
         }
     }
 }
-
