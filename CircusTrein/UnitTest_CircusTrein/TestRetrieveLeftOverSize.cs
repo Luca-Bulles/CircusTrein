@@ -1,16 +1,16 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using CircusTrein;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTest_CircusTrein
+namespace CirusTreinUnitTest
 {
     [TestClass]
     public class TestRetrieveLeftOverSize
     {
-        Animals tiger = new Animals("Simba", AnimalSize.Medium, AnimalDiet.Carnivore);
-        Wagon wagon = new Wagon();        
+        Animal tiger = new Animal("Simba", AnimalSize.Medium, AnimalDiet.Carnivore);
+        CircusTrein.Wagon wagon = new CircusTrein.Wagon();
         [TestMethod]
         public void RetrieveLeftOverSize()
         {

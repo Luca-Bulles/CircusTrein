@@ -1,14 +1,14 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CircusTrein;
 
-namespace UnitTest_CircusTrein
+namespace CirusTreinUnitTest
 {
     [TestClass]
     public class TestRetrieveSize
     {
-        Animals giraffe = new Animals("Luigi", AnimalSize.Large, AnimalDiet.Herbivore);
-        Animals horse = new Animals("Gerard", AnimalSize.Medium, AnimalDiet.Herbivore);
-        Animals babyShark = new Animals("doo doo, doo doo doo doo", AnimalSize.Small, AnimalDiet.Carnivore);
+        Animal giraffe = new Animal("Luigi", AnimalSize.Large, AnimalDiet.Herbivore);
+        Animal horse = new Animal("Gerard", AnimalSize.Medium, AnimalDiet.Herbivore);
+        Animal babyShark = new Animal("doo doo, doo doo doo doo", AnimalSize.Small, AnimalDiet.Carnivore);
 
         private double accuracy = 0.01;
         [TestMethod]
@@ -18,14 +18,14 @@ namespace UnitTest_CircusTrein
             int actualValue = giraffe.RetrieveSize();
             Assert.AreEqual(expectedValue, actualValue, accuracy);
         }
-
+        [TestMethod]
         public void RetrieveSizeTest2()
         {
             int expectedValue = 3;
             int actualValue = horse.RetrieveSize();
             Assert.AreEqual(expectedValue, actualValue, accuracy);
         }
-
+        [TestMethod]
         public void RetrieveSizeTest3()
         {
             int expectedValue = 1;
