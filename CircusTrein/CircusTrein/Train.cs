@@ -37,8 +37,7 @@ namespace CircusTrein
                     {
                         if (i == wagons.Count - 1)
                         {
-                            wagons.Add(new Wagon());
-                            wagons[wagons.Count - 1].InsertInWagon(animal);
+                            InsertAnimalIntoNewWagon(animal);
                             break;
                         }
                         else
@@ -53,12 +52,16 @@ namespace CircusTrein
                     }
                     if (i == wagons.Count - 1)
                     {
-                        wagons.Add(new Wagon());
-                        wagons[wagons.Count - 1].InsertInWagon(animal);
+                        InsertAnimalIntoNewWagon(animal);
                         break;
                     }
                 }
             }
+        }
+        public void InsertAnimalIntoNewWagon(Animal animal)
+        {
+            wagons.Add(new Wagon());
+            wagons[wagons.Count - 1].InsertInWagon(animal);
         }
 
         public List<Wagon> RetrieveWagons()
