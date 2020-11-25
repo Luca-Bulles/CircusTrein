@@ -9,8 +9,6 @@ namespace CircusTrein
     public enum AnimalSize { Small, Medium, Large }
     public class Animal
     {
-        //Class Fields
-
         //Class Properties
         public string Name { get; set; }
         public AnimalDiet Diet { get; set; }
