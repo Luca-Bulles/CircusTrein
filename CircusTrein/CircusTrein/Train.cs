@@ -11,8 +11,6 @@ namespace CircusTrein
         private List<Wagon> wagons = new List<Wagon>();
         private List<Animal> animalsToAdd = new List<Animal>();
 
-        //Class Properties
-
         //Class Constructor
         public Train()
         {
@@ -29,12 +27,10 @@ namespace CircusTrein
         public void InsertAnimalsToWagon()
         {
             ResetWagons();
-            //Sorteer van groot naar klein
             animalsToAdd = animalsToAdd.OrderByDescending(order => order.Size).ToList();
 
             foreach (Animal animal in animalsToAdd)
             {
-                //For every wagon in the wagons list
                 for (int i = 0; i < wagons.Count; i++)
                 {
                     if (wagons[i].IsWagonFull)

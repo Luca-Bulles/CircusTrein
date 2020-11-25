@@ -466,15 +466,12 @@ namespace CircusTrein
                 }
                 else if (menuVleeseter != "1" || menuVleeseter != "2" || menuVleeseter != "3")
                 {
-                    //gemengde groottes
                     Console.WriteLine("Invoer onjuist, probeer het opnieuw!");
                     DoesUserWantToSeeTheMenu = true;
                 }
             }
-            //Menu
             Console.WriteLine("Welkom bij het programma Circus Trein!");
             Console.WriteLine("Geef gegevens van de dieren hieronder door:\n");
-            //Start van het programma
             StartMenu();
 
         }
