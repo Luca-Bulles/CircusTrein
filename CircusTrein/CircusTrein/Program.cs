@@ -5,12 +5,12 @@ namespace CircusTrein
 {
     class Program
     {
-        static bool loop = true;
+        static bool DoesUserWantToSeeTheMenu = true;
         static void Main(string[] args)
         {
             static void StartMenu()
             {
-                while (loop == true)
+                while (DoesUserWantToSeeTheMenu == true)
                 {
                     Console.WriteLine("Toets 1 voor vleeseters, toets 2 voor planteneters en toets 3 voor gemengd.\n");
                     string menuKeuze = Console.ReadLine();
@@ -48,19 +48,19 @@ namespace CircusTrein
                         animal.Diet = AnimalDiet.Carnivore;
                         train.AddAnimalToQueue(animal);
                         //Wil je meer dieren toevoegen
-                        bool loop2 = true;
-                        while (loop2 == true)
+                        bool DoesUserWantToAddMoreAnimals = true;
+                        while (DoesUserWantToAddMoreAnimals == true)
                         {
                             Console.WriteLine("Wil je nog meer dieren toevoegen? Antwoord 'ja'/'nee'");
-                            loop2 = false;
+                            DoesUserWantToAddMoreAnimals = false;
                             string antwoord = Console.ReadLine();
                             if (antwoord == "ja")
                             {
-                                loop = true;
+                                DoesUserWantToSeeTheMenu = true;
                             }
                             if (antwoord == "nee")
                             {
-                                loop = false;
+                                DoesUserWantToSeeTheMenu = false;
                                 train.InsertAnimalsToWagon();
                                 List<Wagon> wagons = train.RetrieveWagons();
                                 for (int i = 0; i < wagons.Count; i++)
@@ -76,7 +76,7 @@ namespace CircusTrein
                             else if (antwoord != "ja" && antwoord != "nee")
                             {
                                 Console.WriteLine("Onjuiste invoer");
-                                loop2 = true;
+                                DoesUserWantToAddMoreAnimals = true;
                             }
                         }
                     }
@@ -93,11 +93,11 @@ namespace CircusTrein
                             string antwoord = Console.ReadLine();
                             if (antwoord == "ja")
                             {
-                                loop = true;
+                                DoesUserWantToSeeTheMenu = true;
                             }
                             if (antwoord == "nee")
                             {
-                                loop = false;
+                                DoesUserWantToSeeTheMenu = false;
                                 train.InsertAnimalsToWagon();
                                 List<Wagon> wagons = train.RetrieveWagons();
                                 for (int i = 0; i < wagons.Count; i++)
@@ -135,11 +135,11 @@ namespace CircusTrein
                             string antwoord = Console.ReadLine();
                             if (antwoord == "ja")
                             {
-                                loop = true;
+                                DoesUserWantToSeeTheMenu = true;
                             }
                             if (antwoord == "nee")
                             {
-                                loop = false;
+                                DoesUserWantToSeeTheMenu = false;
                                 train.InsertAnimalsToWagon();
                                 List<Wagon> wagons = train.RetrieveWagons();
                                 for (int i = 0; i < wagons.Count; i++)
@@ -171,11 +171,11 @@ namespace CircusTrein
                             string antwoord = Console.ReadLine();
                             if (antwoord == "ja")
                             {
-                                loop = true;
+                                DoesUserWantToSeeTheMenu = true;
                             }
                             if (antwoord == "nee")
                             {
-                                loop = false;
+                                DoesUserWantToSeeTheMenu = false;
                                 train.InsertAnimalsToWagon();
                                 List<Wagon> wagons = train.RetrieveWagons();
                                 for (int i = 0; i < wagons.Count; i++)
@@ -213,11 +213,11 @@ namespace CircusTrein
                             string antwoord = Console.ReadLine();
                             if (antwoord == "ja")
                             {
-                                loop = true;
+                                DoesUserWantToSeeTheMenu = true;
                             }
                             if (antwoord == "nee")
                             {
-                                loop = false;
+                                DoesUserWantToSeeTheMenu = false;
                                 train.InsertAnimalsToWagon();
                                 List<Wagon> wagons = train.RetrieveWagons();
                                 for (int i = 0; i < wagons.Count; i++)
@@ -249,11 +249,11 @@ namespace CircusTrein
                             string antwoord = Console.ReadLine();
                             if (antwoord == "ja")
                             {
-                                loop = true;
+                                DoesUserWantToSeeTheMenu = true;
                             }
                             if (antwoord == "nee")
                             {
-                                loop = false;
+                                DoesUserWantToSeeTheMenu = false;
                                 train.InsertAnimalsToWagon();
                                 List<Wagon> wagons = train.RetrieveWagons();
                                 for (int i = 0; i < wagons.Count; i++)
@@ -298,11 +298,11 @@ namespace CircusTrein
                         string antwoord = Console.ReadLine();
                         if (antwoord == "ja")
                         {
-                            loop = true;
+                            DoesUserWantToSeeTheMenu = true;
                         }
                         else if (antwoord == "nee")
                         {
-                            loop = false;
+                            DoesUserWantToSeeTheMenu = false;
                         }
                         else
                         {
@@ -327,11 +327,11 @@ namespace CircusTrein
                         string antwoord = Console.ReadLine();
                         if (antwoord == "ja")
                         {
-                            loop = true;
+                            DoesUserWantToSeeTheMenu = true;
                         }
                         else if (antwoord == "nee")
                         {
-                            loop = false;
+                            DoesUserWantToSeeTheMenu = false;
                         }
                         else
                         {
@@ -356,11 +356,11 @@ namespace CircusTrein
                         string antwoord = Console.ReadLine();
                         if (antwoord == "ja")
                         {
-                            loop = true;
+                            DoesUserWantToSeeTheMenu = true;
                         }
                         else if (antwoord == "nee")
                         {
-                            loop = false;
+                            DoesUserWantToSeeTheMenu = false;
                         }
                         else
                         {
@@ -373,7 +373,7 @@ namespace CircusTrein
                 {
                     //gemengde groottes
                     Console.WriteLine("invoer onjuist, probeer het opnieuw!");
-                    loop = true;
+                    DoesUserWantToSeeTheMenu = true;
                 }
             }
 
@@ -400,11 +400,11 @@ namespace CircusTrein
                         string antwoord = Console.ReadLine();
                         if (antwoord == "ja")
                         {
-                            loop = true;
+                            DoesUserWantToSeeTheMenu = true;
                         }
                         else if (antwoord == "nee")
                         {
-                            loop = false;
+                            DoesUserWantToSeeTheMenu = false;
                         }
                         else if (antwoord != "ja" && antwoord != "nee")
                         {
@@ -429,11 +429,11 @@ namespace CircusTrein
                         string antwoord = Console.ReadLine();
                         if (antwoord == "ja")
                         {
-                            loop = true;
+                            DoesUserWantToSeeTheMenu = true;
                         }
                         else if (antwoord == "nee")
                         {
-                            loop = false;
+                            DoesUserWantToSeeTheMenu = false;
                         }
                         else
                         {
@@ -458,11 +458,11 @@ namespace CircusTrein
                         string antwoord = Console.ReadLine();
                         if (antwoord == "ja")
                         {
-                            loop = true;
+                            DoesUserWantToSeeTheMenu = true;
                         }
                         else if (antwoord == "nee")
                         {
-                            loop = false;
+                            DoesUserWantToSeeTheMenu = false;
                         }
                         else
                         {
@@ -475,7 +475,7 @@ namespace CircusTrein
                 {
                     //gemengde groottes
                     Console.WriteLine("Invoer onjuist, probeer het opnieuw!");
-                    loop = true;
+                    DoesUserWantToSeeTheMenu = true;
                 }
             }
             //Menu
